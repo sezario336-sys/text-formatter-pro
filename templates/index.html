@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Text & Font Formatter | Social Media Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Adsterra Social Bar Script -->
+    <script data-cfasync="false" src="https://brijmohan.org/14/4f026a9b6f6ff7b8f93857fa964d7f81"></script>
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { background: #0b0f19; color: #f3f4f6; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; }
+        .hero { text-align: center; max-width: 650px; margin-bottom: 30px; }
+        .badge { background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.2); display: inline-block; margin-bottom: 12px; text-transform: uppercase; }
+        h1 { font-size: 32px; font-weight: 800; line-height: 1.2; margin-bottom: 10px; background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        p { color: #94a3b8; font-size: 14px; }
+        
+        .tool-card { background: #151c2c; border: 1px solid #232d42; width: 100%; max-width: 600px; border-radius: 16px; padding: 25px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        textarea { width: 100%; height: 120px; padding: 15px; border-radius: 10px; border: 1px solid #2d3748; background: #0f172a; color: #fff; font-size: 15px; outline: none; resize: none; margin-bottom: 15px; transition: border 0.3s; }
+        textarea:focus { border-color: #f97316; }
+        
+        .btn-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+        @media(min-width: 480px) { .btn-grid { grid-template-columns: repeat(4, 1fr); } }
+        button { background: #1e293b; color: #e2e8f0; border: 1px solid #334155; padding: 12px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; transition: 0.2s; }
+        button:hover { background: #f97316; color: #fff; border-color: #f97316; }
+        
+        .output-section { margin-top: 15px; text-align: left; }
+        .output-label { font-size: 12px; color: #94a3b8; margin-bottom: 6px; display: block; text-transform: uppercase; }
+        .output-box { background: #0f172a; border: 1px solid #2d3748; padding: 15px; border-radius: 10px; min-height: 80px; font-size: 15px; color: #38bdf8; word-break: break-all; margin-bottom: 15px; }
+        
+        .copy-btn { width: 100%; background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: #fff; border: none; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer; transition: 0.2s; }
+        .copy-btn:hover { opacity: 0.9; }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <span class="badge">Instant Social Tool</span>
+        <h1>Pro Text & Font Formatter</h1>
+        <p>Transform your normal text into unique bold, italic, and stylized fonts instantly for TikTok, Instagram & Bio.</p>
+    </div>
+
+    <div class="tool-card">
+        <textarea id="userInput" placeholder="Type or paste your text here..." oninput></textarea>
+        
+        <div class="btn-grid">
+            <button onclick="formatText('bold')">Bold Serif</button>
+            <button onclick="formatText('sans')">Sans-Serif</button>
+            <button onclick="formatText('italic')">Italic</button>
+            <button onclick="formatText('script')">Cursive</button>
+        </div>
+
+        <div class="output-section">
+            <span class="output-label">Formatted Result:</span>
+            <div id="outputBox" class="output-box">Your stylized text will appear here...</div>
+            <button class="copy-btn" onclick="copyText()">Copy to Clipboard 📋</button>
+        </div>
+    </div>
+
+    <!-- Adsterra Popunder Script -->
+    <script data-cfasync="false" src="https://ahuramazda.org/1/c1560c5355ed78584a0bf9c99e4493a6"></script>
+
+    <script>
+        const alphabets = {
+            bold: {a: '𝗮', b: '𝗯', c: '𝗰', d: '𝗱', e: '𝗲', f: '𝗳', g: '𝗴', h: '𝗵', i: '𝗶', j: '𝗷', k: '𝗸', l: '𝗹', m: '𝗺', n: '𝗻', o: '𝗼', p: '𝗽', q: '𝗾', r: '𝗿', s: '𝘀', t: '𝘁', u: '𝘂', v: '𝘃', w: '𝘄', x: '𝘅', y: '𝘆', z: '𝘇', A: '𝗔', B: '𝗕', C: '𝗖', D: '𝗗', E: '𝗘', F: '𝗙', G: '𝗚', H: '𝗛', I: '𝗜', J: '𝗝', K: '𝗞', L: '𝗟', M: '𝗠', N: '𝗡', O: '𝗢', P: '𝗣', Q: '𝗤', R: '𝗥', S: '𝗦', T: '𝗧', U: '𝗨', V: '𝗩', W: '𝗪', X: '𝗫', Y: '𝗬', Z: '𝗭'},
+            sans: {a: '𝖺', b: '𝖻', c: '𝖼', d: '𝖽', e: '𝖾', f: '𝖿', g: '𝗀', h: '𝗁', i: '𝗂', j: 'j', k: '𝗄', l: '𝗅', m: '𝗆', n: '𝗇', o: '𝗈', p: '𝗉', q: '𝗊', r: '𝗋', s: '𝗌', t: '𝗍', u: '𝗎', v: '𝗏', w: '𝗐', x: '𝖼', y: '𝗒', z: '𝗓', A: '𝖠', B: '𝖡', C: '𝖢', D: '𝖣', E: '𝖤', F: '𝖥', G: '𝖦', H: '𝖧', I: '𝖨', J: '𝖩', K: '𝖪', L: '𝖫', M: '𝖬', N: '𝖭', O: '𝖮', P: '𝖯', Q: '𝖰', R: '𝖱', S: '𝖲', T: '𝖳', U: '𝖴', V: '𝖵', W: '𝖶', X: '𝖷', Y: '𝖸', Z: '𝖹'},
+            italic: {a: '𝑎', b: '𝑏', c: '𝑐', d: '𝑑', e: '𝑒', f: '𝑓', g: '𝑔', h: 'ℎ', i: '𝑖', j: '𝑗', k: '𝑘', l: '𝑙', m: '𝑚', n: '𝑛', o: '𝑜', p: '𝑝', q: '𝑞', r: '𝑟', s: '𝑠', t: '𝑡', u: '𝑢', v: '𝑣', w: '𝑤', x: '𝑥', y: '𝑦', z: '𝑧', A: '𝐴', B: '𝐵', C: '𝐶', D: '𝐷', E: '𝐸', F: '𝐹', G: '𝐺', H: '𝐻', I: '𝐼', J: '𝐽', K: '𝐾', L: '𝐿', M: '𝑀', N: '𝑁', O: '𝑂', P: '𝑃', Q: '𝑄', R: '𝑅', S: '𝑆', T: '𝑇', U: '𝑈', V: '𝑉', W: '𝑊', X: '𝑋', Y: '𝑌', Z: '𝑍'},
+            script: {a: '𝒶', b: '𝒷', c: '𝒸', d: '𝒹', e: 'ℯ', f: '𝒻', g: 'ℊ', h: '𝒽', i: '𝒾', j: '𝒿', k: '𝓀', l: '𝓁', m: '𝓂', n: '𝓃', o: 'ℴ', p: '𝓅', q: '𝓆', r: '𝓇', s: '𝓈', t: '𝓉', u: '𝓊', v: '𝓋', w: '𝓌', x: '𝓍', y: '𝓎', z: '𝒛', A: '𝒜', B: 'ℬ', C: '𝒞', D: '𝒟', E: 'ℰ', F: 'ℱ', G: '𝒢', H: 'ℋ', I: 'ℐ', J: '𝒥', K: '𝒦', L: 'ℒ', M: 'ℳ', N: '𝒩', O: '𝒪', P: '𝒫', Q: '𝒬', R: 'ℛ', S: '𝒮', T: '𝒯', U: '𝒰', V: '𝒱', W: '𝒲', X: '𝒳', Y: '𝒴', Z: '𝒵'}
+        };
+
+        function formatText(type) {
+            let text = document.getElementById('userInput').value;
+            let result = '';
+            for (let char of text) {
+                if (alphabets[type][char]) {
+                    result += alphabets[type][char];
+                } else {
+                    result += char;
+                }
+            }
+            document.getElementById('outputBox').innerText = result || 'Your stylized text will appear here...';
+        }
+
+        function copyText() {
+            let textToCopy = document.getElementById('outputBox').innerText;
+            navigator.clipboard.writeText(textToCopy);
+            alert('Copied to clipboard successfully!');
+        }
+    </script>
+</body>
+          </html>
